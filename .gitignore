@@ -32,6 +32,20 @@ proguard/
 # Android Studio captures folder
 captures/
 
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+.idea
+*.iml
+*.bin
+*.lock
+*.dex
+*.ap_
+*.apk
+
+# Old-style IDEA project files
+*.ipr
+*.iws
+
 # IntelliJ
 *.iml
 .idea/workspace.xml
