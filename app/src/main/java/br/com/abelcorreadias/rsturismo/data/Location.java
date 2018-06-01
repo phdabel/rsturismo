@@ -23,6 +23,9 @@ public class Location implements Serializable {
 
     public Location(String name){
         this.teams = new ArrayList<>();
+        this.places = new ArrayList<>();
+        this.party = new ArrayList<>();
+        this.nightlife = new ArrayList<>();
         this.setName(name);
     }
 

@@ -1,5 +1,7 @@
 package br.com.abelcorreadias.rsturismo.data;
 
+import java.util.Date;
+
 public class SoccerTeam {
 
     private String name;
@@ -7,16 +9,17 @@ public class SoccerTeam {
     private String stadiumName;
     private int resourceIdStadium;
     private String description;
+    private Date foundation;
 
-    public SoccerTeam(){
+    public SoccerTeam() {
 
     }
 
-    public SoccerTeam(String name){
+    public SoccerTeam(String name) {
         this.setName(name);
     }
 
-   public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -48,11 +51,19 @@ public class SoccerTeam {
         this.resourceIdStadium = resourceIdStadium;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getFoundation() {
+        return foundation;
+    }
+
+    public void setFoundation(Date foundation) {
+        this.foundation = foundation;
     }
 }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="15dp">
 
     <RelativeLayout
         android:id="@+id/party_relative_layout"
@@ -15,12 +17,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Complex"
+            tools:text="Complex"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/address_label_text_view"
+            android:id="@+id/party_address_label_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/party_name_text_view"
@@ -31,19 +33,19 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/address_text_view"
+            android:id="@+id/party_address_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/address_label_text_view"
+            android:layout_below="@id/party_address_label_text_view"
             android:layout_marginLeft="15dp"
-            android:text="Protásio Alves Ave, 3839 - Três Figueiras"
+            tools:text="Protásio Alves Ave, 3839 - Três Figueiras"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/phone_label_text_view"
+            android:id="@+id/party_phone_label_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/address_text_view"
+            android:layout_below="@id/party_address_text_view"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:text="Phone:"
@@ -51,12 +53,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/phone_text_view"
+            android:id="@+id/party_phone_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/phone_label_text_view"
+            android:layout_below="@id/party_phone_label_text_view"
             android:layout_marginLeft="15dp"
-            android:text="+55 51 3062-1869"
+            tools:text="+55 51 3062-1869"
             android:textSize="16sp" />
 
     </RelativeLayout>
@@ -67,13 +69,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/party_relative_layout"
         android:layout_marginTop="10dp"
-        android:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " />
+        tools:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " />
 
     <ImageView
         android:id="@+id/party_image_view"
         android:layout_marginTop="5dp"
         android:layout_width="230dp"
         android:layout_height="150dp"
-        android:src="@drawable/complex" />
+        tools:src="@drawable/complex" />
 
 </LinearLayout>

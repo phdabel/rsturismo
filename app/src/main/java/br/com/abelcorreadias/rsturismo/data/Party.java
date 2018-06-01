@@ -6,7 +6,7 @@ public class Party {
     private String description;
     private int resourceIdImage;
     private String phone;
-    private String neighborhood;
+    private String address;
 
     public Party(){
 
@@ -48,11 +48,11 @@ public class Party {
         this.phone = phone;
     }
 
-    public String getNeighborhood() {
-        return neighborhood;
+    public String getAddress() {
+        return address;
     }
 
-    public void setNeighborhood(String neighborhood) {
-        this.neighborhood = neighborhood;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
