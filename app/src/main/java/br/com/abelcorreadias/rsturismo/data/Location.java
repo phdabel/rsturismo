@@ -14,7 +14,8 @@ public class Location implements Serializable {
     private int resourceIdLogo;
     private ArrayList<SoccerTeam> teams;
     private ArrayList<Place> places;
-    private ArrayList<NightLife> nightLife;
+    private ArrayList<Party> party;
+    private ArrayList<Nightlife> nightlife;
 
     public Location(){
         this.teams = new ArrayList<>();
@@ -81,16 +82,28 @@ public class Location implements Serializable {
         this.places.add(place);
     }
 
-    public ArrayList<NightLife> getNightLife(){
-        return this.nightLife;
+    public ArrayList<Party> getParty(){
+        return this.party;
     }
 
-    public void setNightLife(ArrayList<NightLife> nightLife){
-        this.nightLife = nightLife;
+    public void setParty(ArrayList<Party> party){
+        this.party = party;
     }
 
-    public void addNightLife(NightLife nightLife){
-        this.nightLife.add(nightLife);
+    public void addNightLife(Party party){
+        this.party.add(party);
+    }
+
+    public ArrayList<Nightlife> getNightlife(){
+        return this.nightlife;
+    }
+
+    public void setNightlife(ArrayList<Nightlife> nightlife){
+        this.nightlife = nightlife;
+    }
+
+    public void addNightlife(Nightlife nightlife){
+        this.nightlife.add(nightlife);
     }
 
     public String toString(){
