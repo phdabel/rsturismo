@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
+    /**
+     *  The Location class contains all information about a given city.
+     */
     private Location location;
 
     @Override
@@ -33,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        /**
+         *  Instantiates a new Location and sets the:
+         *  - basic information
+         *  - soccer teams information
+         *  - historical sites
+         *  - parties
+         *  - night life information
+         */
         location = new Location("Porto Alegre");
         location.setResourceIdLogo(R.drawable.poa_logo);
         location.setDescription("Porto Alegre, multicultural by nature.\n" +
@@ -48,12 +59,24 @@ public class MainActivity extends AppCompatActivity {
         }catch(ParseException ex){
             Log.e(TAG, ex.getMessage());
         }
-        location.setSites(loadPlaceData());
+        location.setHistoricalSites(loadHistoricalSitesData());
         location.setParty(loadParties());
         location.setNightlife(loadNightlife());
 
+        /**
+         * @TODO Organizing data into the data.json file instead methods in the MainActivity.
+        try{
+            InputStream is = getResources().openRawResource(R.raw.data);
+            List<String> strings = readJsonStream(is);
+            System.out.println(strings.toString());
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }*/
 
-        /** @TODO modificar o adaptador pra incluir os fragmentos na inicializacao */
+        /**
+         *  The TourFragmentPagerAdapter loads the fragment of each piece of information in the
+         *  correct tab of the ViewPager in the app.
+         */
         TourFragmentPagerAdapter adapter = new TourFragmentPagerAdapter(getSupportFragmentManager(), this, this.location);
 
         viewPager.setAdapter(adapter);
@@ -63,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    /**
+     * Returns a list of the soccer teams of the location.
+     *
+     * @return
+     * @throws ParseException
+     */
     private ArrayList<SoccerTeam> loadTeams() throws ParseException {
         ArrayList<SoccerTeam> teams = new ArrayList<>();
 
@@ -85,7 +114,12 @@ public class MainActivity extends AppCompatActivity {
         return teams;
     }
 
-    private ArrayList<Tourism> loadPlaceData(){
+    /**
+     * Returns the list of the historical sites of the location.
+     *
+     * @return
+     */
+    private ArrayList<Tourism> loadHistoricalSitesData(){
         ArrayList<Tourism> places = new ArrayList<Tourism>();
 
         Tourism place = new Tourism("Monument to the Expeditionary");
@@ -159,6 +193,11 @@ public class MainActivity extends AppCompatActivity {
         return places;
     }
 
+    /**
+     * Returns the parties of the location.
+     *
+     * @return
+     */
     private ArrayList<Party> loadParties(){
 
         ArrayList<Party> parties = new ArrayList<>();
@@ -195,6 +234,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Returns information about the night life.
+     * @return
+     */
     private ArrayList<Nightlife> loadNightlife(){
 
         ArrayList<Nightlife> places = new ArrayList<>();
@@ -216,4 +259,45 @@ public class MainActivity extends AppCompatActivity {
         return places;
 
     }
+
+    /**
+    public List<String> readJsonStream(InputStream in) throws IOException {
+        JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+        try{
+            return readMessagesArray(reader);
+        }finally{
+            reader.close();
+        }
+    }
+
+    public List<String> readMessagesArray(JsonReader reader) throws IOException {
+        List<String> messages = new ArrayList<>();
+
+        reader.beginArray();
+        while(reader.hasNext()){
+            messages.add(readMessage(reader));
+        }
+        reader.endArray();
+        return messages;
+    }
+
+    public String readMessage(JsonReader reader) throws IOException {
+        String name = null;
+        String description = null;
+
+        reader.beginObject();
+        while(reader.hasNext()){
+            String tmp = reader.nextName();
+            if(tmp.equals("name")) {
+                name = reader.nextString();
+            }else if(tmp.equals("description")){
+                description = reader.nextString();
+            }else{
+                reader.skipValue();
+            }
+        }
+        reader.endObject();
+        return name+" "+description;
+    }*/
+
 }

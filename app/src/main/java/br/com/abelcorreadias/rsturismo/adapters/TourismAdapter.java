@@ -30,8 +30,15 @@ public class TourismAdapter extends ArrayAdapter<Tourism> {
                     false);
         }
 
+        /**
+         *  Get the {@link Tourism} object located at this position in the list
+         */
         Tourism currentSite = getItem(position);
 
+        /**
+         *  Get the TextViews and ImageView of the tourism_item_list_view and fill them
+         *  with the information of the current instance.
+         */
         TextView siteNameTextView = (TextView) listItemView.findViewById(R.id.tourism_name_text_view);
         siteNameTextView.setText(currentSite.getName());
 

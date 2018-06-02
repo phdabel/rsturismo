@@ -21,6 +21,9 @@ import br.com.abelcorreadias.rsturismo.data.Location;
  */
 public class LocationFragment extends Fragment {
 
+    /**
+     *  Location object.
+     */
     private Location location;
 
     public LocationFragment(){
@@ -33,8 +36,14 @@ public class LocationFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_location, container, false);
 
+        /**
+         *  Finds the {@link LinearLayout} in the fragment_location.
+         */
         LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.location_linear_layout);
 
+        /**
+         *  Sets the location information in the TextViews and ImageView in the location layout.
+         */
         ImageView locationLogoImageView = (ImageView) layout.findViewById(R.id.location_logo_image_view);
         locationLogoImageView.setImageResource(this.getLocation().getResourceIdLogo());
 

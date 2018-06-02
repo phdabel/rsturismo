@@ -16,15 +16,31 @@ import br.com.abelcorreadias.rsturismo.fragments.TeamFragment;
 
 public class TourFragmentPagerAdapter extends FragmentPagerAdapter {
 
+    /**
+     *  Location object and Context object passed during the instantiation of the class.
+     */
     private Location location;
     private Context context;
 
+    /**
+     * Create a new {@link TourFragmentPagerAdapter} object.
+     *
+     * @param fm is the fragment manager that will keep each fragment's state in the adapter
+     * @param context is the context of the app
+     * @param location is the object containing all the information about the location
+     */
     public TourFragmentPagerAdapter(FragmentManager fm, Context context, Location location){
         super(fm);
         this.context = context;
         this.location = location;
     }
 
+    /**
+     * Returns the {@link Fragment} that should be displayed for the given page number.
+     *
+     * @param position
+     * @return
+     */
     @Override
     public Fragment getItem(int position) {
         switch(position){
@@ -52,11 +68,22 @@ public class TourFragmentPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
+    /**
+     * Total of pages.
+     *
+     * @return
+     */
     @Override
     public int getCount() {
         return 5;
     }
 
+    /**
+     * Returns the labels of the tabs.
+     *
+     * @param position
+     * @return
+     */
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {

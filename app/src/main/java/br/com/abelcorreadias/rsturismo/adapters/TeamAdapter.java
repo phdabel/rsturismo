@@ -36,8 +36,15 @@ public class TeamAdapter extends ArrayAdapter<SoccerTeam> {
                     false);
         }
 
+        /**
+         *  Get the {@link SoccerTeam} object located at this position in the list
+         */
         SoccerTeam currentTeam = getItem(position);
 
+        /**
+         *  Get the TextViews and ImageView of the soccer_team_item_list_view and fill them
+         *  with the information of the current instance.
+         */
         TextView teamNameTextView = (TextView) listItemView.findViewById(R.id.team_name_text_view);
         teamNameTextView.setText(currentTeam.getName());
 

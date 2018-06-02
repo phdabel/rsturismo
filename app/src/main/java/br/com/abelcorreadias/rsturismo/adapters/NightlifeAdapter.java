@@ -30,8 +30,15 @@ public class NightlifeAdapter extends ArrayAdapter<Nightlife> {
                     false);
         }
 
+        /**
+         *  Get the {@link Nightlife} object located at this position in the list.
+         */
         Nightlife currentNight = getItem(position);
 
+        /**
+         *  Get the TextViews and ImageView of the nightlife_item_list_view and fill them
+         *  with the information of the current instance.
+         */
         TextView nightlifeNameTextView = (TextView) listItemView.findViewById(R.id.nightlife_name_text_view);
         nightlifeNameTextView.setText(currentNight.getName());
 

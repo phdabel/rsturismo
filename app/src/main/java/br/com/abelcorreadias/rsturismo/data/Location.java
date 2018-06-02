@@ -8,13 +8,21 @@ public class Location implements Serializable {
 
     private static final String TAG = Location.class.getSimpleName();
 
+    // Name of the city
     private String name;
+    // Description of the city
     private String description;
+    // Date of foundation of the city
     private Date foundation;
+    // Logo/Flag of the city
     private int resourceIdLogo;
+    // Soccer teams (if they exist) of the city
     private ArrayList<SoccerTeam> teams;
+    // historical sites
     private ArrayList<Tourism> sites;
+    // parties
     private ArrayList<Party> party;
+    // night life neighborhood
     private ArrayList<Nightlife> nightlife;
 
     public Location(){
@@ -77,7 +85,7 @@ public class Location implements Serializable {
         return this.sites;
     }
 
-    public void setSites(ArrayList<Tourism> sites){
+    public void setHistoricalSites(ArrayList<Tourism> sites){
         this.sites = sites;
     }
 
