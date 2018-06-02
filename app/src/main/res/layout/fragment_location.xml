@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/location_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/location_linear_layout"
     android:padding="15dp">
 
     <RelativeLayout
@@ -23,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/location_logo_image_view"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:layout_toRightOf="@id/location_logo_image_view"
             tools:text="Porto Alegre" />
 
         <TextView
@@ -33,12 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/location_name_text_view"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="15dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/location_logo_image_view"
-            android:text="Foundation date:" />
+            android:text="@string/foundation_date_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/location_foundation_text_view"
@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/foundation_label_text_view"
             android:layout_marginLeft="15dp"
-            android:textSize="16sp"
             android:layout_toRightOf="@id/location_logo_image_view"
+            android:textSize="16sp"
             tools:text="26/03/1772" />
 
     </RelativeLayout>
@@ -56,8 +56,9 @@
         android:id="@+id/location_description_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@id/city_logo_relative_layout"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         tools:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " />
 
 </LinearLayout>

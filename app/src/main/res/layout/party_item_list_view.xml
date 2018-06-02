@@ -28,7 +28,7 @@
             android:layout_below="@id/party_name_text_view"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="Address:"
+            android:text="@string/address_label"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_below="@id/party_address_text_view"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="Phone:"
+            android:text="@string/phone_label"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/party_relative_layout"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         tools:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " />
 
     <ImageView

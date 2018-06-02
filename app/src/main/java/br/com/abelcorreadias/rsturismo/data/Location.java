@@ -13,7 +13,7 @@ public class Location implements Serializable {
     private Date foundation;
     private int resourceIdLogo;
     private ArrayList<SoccerTeam> teams;
-    private ArrayList<Place> places;
+    private ArrayList<Tourism> sites;
     private ArrayList<Party> party;
     private ArrayList<Nightlife> nightlife;
 
@@ -23,7 +23,7 @@ public class Location implements Serializable {
 
     public Location(String name){
         this.teams = new ArrayList<>();
-        this.places = new ArrayList<>();
+        this.sites = new ArrayList<>();
         this.party = new ArrayList<>();
         this.nightlife = new ArrayList<>();
         this.setName(name);
@@ -73,16 +73,16 @@ public class Location implements Serializable {
         this.teams.add(team);
     }
 
-    public ArrayList<Place> getPlaces(){
-        return this.places;
+    public ArrayList<Tourism> getSites(){
+        return this.sites;
     }
 
-    public void setPlaces(ArrayList<Place> places){
-        this.places = places;
+    public void setSites(ArrayList<Tourism> sites){
+        this.sites = sites;
     }
 
-    public void addPlace(Place place){
-        this.places.add(place);
+    public void addPlace(Tourism place){
+        this.sites.add(place);
     }
 
     public ArrayList<Party> getParty(){

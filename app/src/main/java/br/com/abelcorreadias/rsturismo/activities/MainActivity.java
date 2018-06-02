@@ -1,11 +1,11 @@
 package br.com.abelcorreadias.rsturismo.activities;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import br.com.abelcorreadias.rsturismo.adapters.TourFragmentPagerAdapter;
 import br.com.abelcorreadias.rsturismo.data.Location;
 import br.com.abelcorreadias.rsturismo.data.Nightlife;
 import br.com.abelcorreadias.rsturismo.data.Party;
-import br.com.abelcorreadias.rsturismo.data.Place;
+import br.com.abelcorreadias.rsturismo.data.Tourism;
 import br.com.abelcorreadias.rsturismo.data.SoccerTeam;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,14 +48,19 @@ public class MainActivity extends AppCompatActivity {
         }catch(ParseException ex){
             Log.e(TAG, ex.getMessage());
         }
-        location.setPlaces(loadPlaceData());
+        location.setSites(loadPlaceData());
         location.setParty(loadParties());
         location.setNightlife(loadNightlife());
 
+
         /** @TODO modificar o adaptador pra incluir os fragmentos na inicializacao */
-        TourFragmentPagerAdapter adapter = new TourFragmentPagerAdapter(getSupportFragmentManager(), this.location);
+        TourFragmentPagerAdapter adapter = new TourFragmentPagerAdapter(getSupportFragmentManager(), this, this.location);
 
         viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private ArrayList<SoccerTeam> loadTeams() throws ParseException {
@@ -80,74 +85,74 @@ public class MainActivity extends AppCompatActivity {
         return teams;
     }
 
-    private ArrayList<Place> loadPlaceData(){
-        ArrayList<Place> places = new ArrayList<Place>();
+    private ArrayList<Tourism> loadPlaceData(){
+        ArrayList<Tourism> places = new ArrayList<Tourism>();
 
-        Place place = new Place("Monument to the Expeditionary");
+        Tourism place = new Tourism("Monument to the Expeditionary");
         place.setDescription("The monument honors the \"squares\" of the Brazilian Expeditionary Force (F.E.B), who fought in World War II. It is located in Largo General Yeddo J. Blauth, in the Farroupilha Park, in front of the Military College, and serves as a backdrop for civic ceremonies and Army presentations on commemorative dates.\n" +
                 "\n" +
                 "On Sundays, when the traditional Brique da Redenção takes place, the monument becomes a stage for shows performed by local and national artists.");
-        place.setResourceIdPlace(R.drawable.arco_redencao);
+        place.setResourceIdSite(R.drawable.arco_redencao);
 
         places.add(place);
 
-        place = new Place("Casa de Cultura Mário Quintana");
+        place = new Tourism("Casa de Cultura Mário Quintana");
         place.setDescription("The Casa de Cultura Mario Quintana (CCMQ), originally Hotel Majestic, is a historic Brazilian building and cultural center of the city of Porto Alegre, one of the largest and best equipped in Brazil.\n" +
                 "\n" +
                 "The Hotel Majestic had its heyday in the 1930s, 1940s and 1950s. During this period it had as guests great names in politics, such as former presidents Getúlio Vargas and Jango Goulart, and the artistic world such as Vicente Celestino, Virginia Lane and Francisco Alves. The House was named in honor of one of the greatest Brazilian poets, Mário Quintana, born in the city of Alegrete in the state of Rio Grande do Sul, but who adopted Porto Alegre as his city of heart. The writer lived in the hotel between 1968 and 1980, in apartment 217.");
-        place.setResourceIdPlace(R.drawable.ccmq);
+        place.setResourceIdSite(R.drawable.ccmq);
 
         places.add(place);
 
-        place = new Place("Usina do Gasômetro");
+        place = new Tourism("Usina do Gasômetro");
         place.setDescription("Usina do Gasômetro, or simply Gasômetro, is an old Brazilian power generation plant located in Porto Alegre, capital of Rio Grande do Sul. Despite its name, it was actually a coal-fired power plant - the \"Gasômetro\" referred to to the area where today is the Plant, called Volta do Gasômetro.\n" +
                 "\n" +
                 "It is one of the most traditional points to see the famous sunset of the city, on the shores of Lake Guaíba. Today the Usina do Gasômetro is a great cultural center of the city, being the stage of the most diverse artistic manifestations like theater, dance, paintings, etc.");
-        place.setResourceIdPlace(R.drawable.gasometro_poa);
+        place.setResourceIdSite(R.drawable.gasometro_poa);
 
         places.add(place);
 
-        place = new Place("Cisne Branco");
+        place = new Tourism("Cisne Branco");
         place.setDescription("True icon of Porto Alegre, the Cisne Branco boat is a reference in river tourism, entertainment and floating leisure in the capital of Rio Grande do Sul.The Cisne Branco embarkation point is at the Central Gate of the Port of Porto Alegre, which has a special significance in the history of the city, since it was the arrival point of all the passenger ships, including our immigrants.In addition to the regular tours offered, the Cisne Branco is considered a Floating Cultural Space.The Cisne Branco has the capacity to carry 300 passengers and 20 crew, in total safety and comfort. The boat has a wastewater treatment tank, so it does not launch directly into the Guaíba and, in this way, does not pollute its waters.");
-        place.setResourceIdPlace(R.drawable.cisne_branco_poa);
+        place.setResourceIdSite(R.drawable.cisne_branco_poa);
 
         places.add(place);
 
-        place = new Place("Iberê Camargo Foundation");
+        place = new Tourism("Iberê Camargo Foundation");
         place.setDescription("The Iberê Camargo Foundation, based in the Brazilian city of Porto Alegre, is a cultural entity whose objectives are the preservation, study and dissemination of the work of the Brazilian painter Iberê Camargo (1914-1994).\n" +
                 "\n" +
                 "The Foundation was created in 1995 by the widow of Iberê Camargo, Maria Coussirat Camargo, to whom he left his artistic collection, one year after the artist's death, in 1994.");
-        place.setResourceIdPlace(R.drawable.instituto_ibere_camargo);
+        place.setResourceIdSite(R.drawable.instituto_ibere_camargo);
 
         places.add(place);
 
-        place = new Place("O Laçador");
+        place = new Tourism("O Laçador");
         place.setDescription("It is a monument of the city of Porto Alegre. It is the representation of the gaucho. It was defined by municipal law as Official Symbol of Porto Alegre in 1992. Its authorship is by the Pelotan sculptor Antônio Caringi. The statue was registered as a historical patrimony of Porto Alegre in 2001. In 2007, the monument was transferred from its original site, the Largo of the Bombeiro, to the site of the Laçador, due to the construction of the Leonel Brizola viaduct.To use an authentic gaucho as a model for his work, Antônio Caringi counted on the folklorist Paixão Côrtes, then a young man who appreciated the customs of the culture of the Rio Grande do Sul, which he posed for the artist with his collection of gauchesque clothing.The monument is made of bronze, is 4.45 meters high and weighs 3.8 tons. The statue has a pedestal of trapezoidal granite of 2.10 meters of height.");
-        place.setResourceIdPlace(R.drawable.lacador);
+        place.setResourceIdSite(R.drawable.lacador);
 
         places.add(place);
 
-        place = new Place("Public Market");
+        place = new Tourism("Public Market");
         place.setDescription("The Central Public Market of Porto Alegre is a historic building in the city of Porto Alegre, the capital of the state of Rio Grande do Sul. The Central Public Market has as boundaries Largo Glênio Peres, Borges de Medeiros Avenue, Júlio de Castilhos Avenue and the Pereira Parobé Square, in the historical center of the city. It is next to the building of the City Hall of Porto Alegre and facing the Chalet of Praça XV.");
-        place.setResourceIdPlace(R.drawable.mercado_publico_poa);
+        place.setResourceIdSite(R.drawable.mercado_publico_poa);
 
         places.add(place);
 
-        place = new Place("Moinhos de Vento Park");
+        place = new Tourism("Moinhos de Vento Park");
         place.setDescription("The name Moinhos de Vento Park originated in the eighteenth century, when Antonio Martins Barbosa, from Minas Gerais, settled down with his windmill on the spine where today is Independencia Avenue.\n" +
                 "\n" +
                 "Today, Moinhos de Vento Park offers leisure options such as jogging, skating, soccer, tennis, volleyball and gym equipment. For the children's audience, there are handmade recreation equipment, made of eucalyptus logs, and a children's library.\n" +
                 "\n" +
                 "The park also has an Azorean mill, in the style of those that existed in the neighborhood in the early days of the city, an element that constitutes a strong tourist attraction. In the park, the Maria Dinorah Ecological Children's Library also functions.");
-        place.setResourceIdPlace(R.drawable.parcao);
+        place.setResourceIdSite(R.drawable.parcao);
 
         places.add(place);
 
-        place = new Place("Farroupilha Park");
+        place = new Tourism("Farroupilha Park");
         place.setDescription("Farroupilha Park, better known as Redenção Park or simply Redenção, is the most traditional and popular park in the Brazilian city of Porto Alegre, capital of the state of Rio Grande do Sul.\n" +
                 "\n" +
                 "It is a place visited by many seafarers in the hours of rest, whether for sports, sunbathing or fraternizing with friends and family. The perimeter of the park is defined by the streets Setembrina and Luis Englert and the avenues Oswaldo Aranha, João Pessoa and José Bonifácio.");
-        place.setResourceIdPlace(R.drawable.redencao);
+        place.setResourceIdSite(R.drawable.redencao);
 
         places.add(place);
 

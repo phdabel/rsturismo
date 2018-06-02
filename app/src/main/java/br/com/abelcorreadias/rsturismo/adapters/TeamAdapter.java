@@ -45,7 +45,7 @@ public class TeamAdapter extends ArrayAdapter<SoccerTeam> {
         teamLogoImageView.setImageResource(currentTeam.getResourceIdLogo());
 
         TextView teamFoundationTextView = (TextView) listItemView.findViewById(R.id.team_foundation_text_view);
-        teamFoundationTextView.setText((new SimpleDateFormat("yyyy-MM-dd").format(currentTeam.getFoundation())).toString());
+        teamFoundationTextView.setText((new SimpleDateFormat("yyyy-MM-dd").format(currentTeam.getFoundation())));
 
         TextView teamDescriptionTextView = (TextView) listItemView.findViewById(R.id.team_description_text_view);
         teamDescriptionTextView.setText(currentTeam.getDescription());

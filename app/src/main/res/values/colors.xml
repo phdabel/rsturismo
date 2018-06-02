@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="tourismColorPrimary">#aed581</color>
+    <color name="tourismColorLight">#e1ffb1</color>
+    <color name="tourismColorDark">#7da453</color>
+    <color name="tourismColorText">#000000</color>
 </resources>

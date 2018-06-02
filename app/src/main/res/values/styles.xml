@@ -8,5 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TourismStyle">
+        <item name="colorPrimary">@color/tourismColorPrimary</item>
+        <item name="colorPrimaryDark">@color/tourismColorDark</item>
+        <item name="colorAccent">@color/tourismColorLight</item>
+        <item name="android:background">@color/tourismColorPrimary</item>
+    </style>
+
 
 </resources>

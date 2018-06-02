@@ -1,23 +1,27 @@
 package br.com.abelcorreadias.rsturismo.adapters;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import br.com.abelcorreadias.rsturismo.R;
 import br.com.abelcorreadias.rsturismo.data.Location;
 import br.com.abelcorreadias.rsturismo.fragments.LocationFragment;
 import br.com.abelcorreadias.rsturismo.fragments.NightlifeFragment;
 import br.com.abelcorreadias.rsturismo.fragments.PartyFragment;
-import br.com.abelcorreadias.rsturismo.fragments.PlaceFragment;
+import br.com.abelcorreadias.rsturismo.fragments.TourismFragment;
 import br.com.abelcorreadias.rsturismo.fragments.TeamFragment;
 
 public class TourFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private Location location;
+    private Context context;
 
-    public TourFragmentPagerAdapter(FragmentManager fm, Location location){
+    public TourFragmentPagerAdapter(FragmentManager fm, Context context, Location location){
         super(fm);
+        this.context = context;
         this.location = location;
     }
 
@@ -25,11 +29,13 @@ public class TourFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return new LocationFragment();
+                LocationFragment locationFragment = new LocationFragment();
+                locationFragment.setLocation(location);
+                return locationFragment;
             case 1:
-                PlaceFragment placeFragment = new PlaceFragment();
-                placeFragment.setPlaces(location.getPlaces());
-                return placeFragment;
+                TourismFragment tourismFragment = new TourismFragment();
+                tourismFragment.setSites(location.getSites());
+                return tourismFragment;
             case 2:
                 TeamFragment teamFragment = new TeamFragment();
                 teamFragment.setTeams(location.getTeams());
@@ -49,5 +55,23 @@ public class TourFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 5;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch(position){
+            case 0:
+                return context.getString(R.string.Tab_POA);
+            case 1:
+                return context.getString(R.string.Tab_Tourism);
+            case 2:
+                return context.getString(R.string.Tab_Soccer);
+            case 3:
+                return context.getString(R.string.Tab_Parties);
+            case 4:
+                return context.getString(R.string.Tab_Night);
+        }
+        return null;
     }
 }

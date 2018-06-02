@@ -7,7 +7,7 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/place_name_text_view"
+        android:id="@+id/tourism_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -16,14 +16,15 @@
         tools:text="Estátua do Laçador" />
 
     <TextView
-        android:id="@+id/place_description_text_view"
+        android:id="@+id/tourism_description_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:gravity="center"
         tools:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " />
 
     <ImageView
-        android:id="@+id/place_image_view"
+        android:id="@+id/tourism_image_view"
         android:layout_width="230dp"
         android:layout_height="150dp"
         android:layout_marginTop="5dp"

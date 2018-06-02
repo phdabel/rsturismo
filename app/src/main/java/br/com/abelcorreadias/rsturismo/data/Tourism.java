@@ -1,16 +1,16 @@
 package br.com.abelcorreadias.rsturismo.data;
 
-public class Place {
+public class Tourism {
 
     private String name;
     private String description;
-    private int resourceIdPlace;
+    private int resourceIdSite;
 
-    public Place(){
+    public Tourism(){
 
     }
 
-    public Place(String name){
+    public Tourism(String name){
         this.setName(name);
     }
 
@@ -30,11 +30,11 @@ public class Place {
         this.description = description;
     }
 
-    public int getResourceIdPlace() {
-        return resourceIdPlace;
+    public int getResourceIdSite() {
+        return resourceIdSite;
     }
 
-    public void setResourceIdPlace(int resourceIdPlace) {
-        this.resourceIdPlace = resourceIdPlace;
+    public void setResourceIdSite(int resourceIdSite) {
+        this.resourceIdSite = resourceIdSite;
     }
 }

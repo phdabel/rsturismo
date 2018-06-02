@@ -36,13 +36,13 @@ public class LocationFragment extends Fragment {
         LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.location_linear_layout);
 
         ImageView locationLogoImageView = (ImageView) layout.findViewById(R.id.location_logo_image_view);
-        locationLogoImageView.setImageResource(location.getResourceIdLogo());
+        locationLogoImageView.setImageResource(this.getLocation().getResourceIdLogo());
 
         TextView locationNameTextView = (TextView) layout.findViewById(R.id.location_name_text_view);
         locationNameTextView.setText(location.getName());
 
         TextView locationFoundationTextView = (TextView) layout.findViewById(R.id.location_foundation_text_view);
-        locationFoundationTextView.setText((new SimpleDateFormat("yyyy-MM-dd").format(location.getFoundation())).toString());
+        locationFoundationTextView.setText(new SimpleDateFormat("yyyy-MM-dd").format(location.getFoundation()));
 
         TextView locationDescriptionTextView = (TextView) layout.findViewById(R.id.location_description_text_view);
         locationDescriptionTextView.setText(location.getDescription());

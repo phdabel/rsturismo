@@ -7,23 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import br.com.abelcorreadias.rsturismo.R;
-import br.com.abelcorreadias.rsturismo.adapters.PlaceAdapter;
-import br.com.abelcorreadias.rsturismo.adapters.TeamAdapter;
-import br.com.abelcorreadias.rsturismo.data.Place;
+import br.com.abelcorreadias.rsturismo.adapters.TourismAdapter;
+import br.com.abelcorreadias.rsturismo.data.Tourism;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlaceFragment extends Fragment {
+public class TourismFragment extends Fragment {
 
-    private ArrayList<Place> places;
+    private ArrayList<Tourism> sites;
 
-    public PlaceFragment() {
+    public TourismFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +31,7 @@ public class PlaceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
-        PlaceAdapter adapter = new PlaceAdapter(getActivity(), this.getPlaces());
+        TourismAdapter adapter = new TourismAdapter(getActivity(), this.getSites());
 
         ListView listView = (ListView) rootView.findViewById(R.id.list_view);
 
@@ -42,11 +40,11 @@ public class PlaceFragment extends Fragment {
         return rootView;
     }
 
-    public ArrayList<Place> getPlaces() {
-        return places;
+    public ArrayList<Tourism> getSites() {
+        return sites;
     }
 
-    public void setPlaces(ArrayList<Place> places) {
-        this.places = places;
+    public void setSites(ArrayList<Tourism> sites) {
+        this.sites = sites;
     }
 }
