@@ -3,15 +3,16 @@ package br.com.abelcorreadias.rsturismo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import br.com.abelcorreadias.rsturismo.R;
-import br.com.abelcorreadias.rsturismo.adapters.TeamAdapter;
+import br.com.abelcorreadias.rsturismo.adapters.TeamRecyclerAdapter;
 import br.com.abelcorreadias.rsturismo.data.SoccerTeam;
 
 /**
@@ -28,11 +29,20 @@ public class TeamFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
-        TeamAdapter adapter = new TeamAdapter(getActivity(), this.getTeams());
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+        /**
+         *  This setting improves the performance if you know that changes
+         *  in content do not change the layout size of the RecyclerView.
+         */
+        recyclerView.setHasFixedSize(true);
 
-        listView.setAdapter(adapter);
+        // uses a linear layout manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        TeamRecyclerAdapter adapter = new TeamRecyclerAdapter(this.getTeamsAsArray());
+        recyclerView.setAdapter(adapter);
 
         return rootView;
     }
@@ -43,6 +53,10 @@ public class TeamFragment extends Fragment {
 
     public ArrayList<SoccerTeam> getTeams(){
         return this.teams;
+    }
+
+    public SoccerTeam[] getTeamsAsArray(){
+        return this.teams.toArray(new SoccerTeam[this.teams.size()]);
     }
 
 

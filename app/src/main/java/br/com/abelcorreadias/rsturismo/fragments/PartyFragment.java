@@ -3,15 +3,16 @@ package br.com.abelcorreadias.rsturismo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import br.com.abelcorreadias.rsturismo.R;
-import br.com.abelcorreadias.rsturismo.adapters.PartyAdapter;
+import br.com.abelcorreadias.rsturismo.adapters.PartyRecyclerAdapter;
 import br.com.abelcorreadias.rsturismo.data.Party;
 
 /**
@@ -31,11 +32,20 @@ public class PartyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
-        PartyAdapter adapter = new PartyAdapter(getActivity(), this.getParties());
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+        /**
+         *  This setting improves the performance if you know that changes
+         *  in content do not change the layout size of the RecyclerView.
+         */
+        recyclerView.setHasFixedSize(true);
 
-        listView.setAdapter(adapter);
+        // uses a linear layout manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        PartyRecyclerAdapter adapter = new PartyRecyclerAdapter(this.getPartiesAsArray());
+        recyclerView.setAdapter(adapter);
 
         return rootView;
     }
@@ -46,5 +56,9 @@ public class PartyFragment extends Fragment {
 
     public void setParties(ArrayList<Party> parties) {
         this.parties = parties;
+    }
+
+    public Party[] getPartiesAsArray(){
+        return this.parties.toArray(new Party[this.parties.size()]);
     }
 }

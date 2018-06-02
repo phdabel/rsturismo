@@ -3,16 +3,16 @@ package br.com.abelcorreadias.rsturismo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import br.com.abelcorreadias.rsturismo.R;
-import br.com.abelcorreadias.rsturismo.adapters.NightlifeAdapter;
+import br.com.abelcorreadias.rsturismo.adapters.NightlifeRecyclerAdapter;
 import br.com.abelcorreadias.rsturismo.data.Nightlife;
 
 /**
@@ -33,11 +33,20 @@ public class NightlifeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
-        NightlifeAdapter adapter = new NightlifeAdapter(getContext(), getNight());
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+        /**
+         *  This setting improves the performance if you know that changes
+         *  in content do not change the layout size of the RecyclerView.
+         */
+        recyclerView.setHasFixedSize(true);
 
-        listView.setAdapter(adapter);
+        // uses a linear layout manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        NightlifeRecyclerAdapter adapter = new NightlifeRecyclerAdapter(this.getNightlifeAsArray());
+        recyclerView.setAdapter(adapter);
 
         return rootView;
 
@@ -49,5 +58,9 @@ public class NightlifeFragment extends Fragment {
 
     public void setNight(ArrayList<Nightlife> night) {
         this.night = night;
+    }
+
+    public Nightlife[] getNightlifeAsArray(){
+        return this.night.toArray(new Nightlife[this.night.size()]);
     }
 }
